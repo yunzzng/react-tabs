@@ -1,7 +1,7 @@
 // import { useState } from 'react'
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-import './App.css'
+// import './App.css'
 import Tabs from './components/Tabs'
 // import TabMenuList from './components/Tabs/TabMenuList'
 // import TabMenu from './components/Tabs/TabMenu'
@@ -38,9 +38,7 @@ function App() {
         <TabPannel>Content3</TabPannel>
       </Tabs>
 
-      <br/><hr/><br/>
-
-      <Carousel>
+      <Carousel >
          <Carousel.ItemList>
             <Carousel.Item index={0}>1</Carousel.Item>
             <Carousel.Item index={1}>2</Carousel.Item>
@@ -49,8 +47,6 @@ function App() {
          <Carousel.Navigator/>
          <Carousel.Indicator/>
       </Carousel>
-
-      <br/><hr/><br/>
 
       {/* <Counter/> */}
     </>

@@ -1,4 +1,5 @@
 import { Children, cloneElement, FC, isValidElement, ReactElement, ReactNode, useMemo } from "react";
+import { tabsMenuListBaseCls } from '../../consts/className'
 
 // interface TabMenuListProps extends PropsWithChildren {}
 
@@ -30,7 +31,11 @@ const TabMenuList: FC<{ children: ReactNode }> = ({ children }) => {
     </>
   ), [children]); 
 
-  return tabMenuComponents;
+  return (
+    <div className={tabsMenuListBaseCls}>
+      {tabMenuComponents}
+    </div>
+    )
 };
 
 export default TabMenuList;

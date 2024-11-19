@@ -1,5 +1,6 @@
 import { FC, ReactNode, useContext, useMemo } from "react";
 import { TabContext } from "."; 
+import { tabsPannelBaseCls } from '../../consts/className'
 
 // interface TabPanelProps extends PropsWithChildren {
 //     index: number;
@@ -30,7 +31,11 @@ const TabPanel: FC<TabPanelProps> = ({ children, index }) => {
       tabIndex === index ? <div>{children}</div> : null
     ), [children, tabIndex, index]); 
   
-    return tabPanelComponents;
+    return (
+      <div className={tabsPannelBaseCls}>
+        {tabPanelComponents}
+      </div>
+    )
 };
 
 export default TabPanel;

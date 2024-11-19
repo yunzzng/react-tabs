@@ -1,5 +1,6 @@
 import { FC, PropsWithChildren, useContext } from "react";
 import { CarouselContext } from "."; 
+import { carouselItemCls } from "../../consts/className";
 
 interface CarouselItemProps extends PropsWithChildren {
     index: number;
@@ -13,7 +14,9 @@ const CarouselItem : FC<CarouselItemProps> = ({ children, index })  => {
     }
 
     return (
-        <div>{children}</div>
+        <div className={carouselItemCls}>
+            {children}
+        </div>
     );
 }
 

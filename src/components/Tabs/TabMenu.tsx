@@ -1,5 +1,6 @@
-import { FC, ReactNode, useContext } from "react";
+import { FC, ReactNode, useContext, useMemo } from "react";
 import { TabContext } from "."; 
+import { tabsMenuBaseCls } from '../../consts/className'
 
 // interface TabMenuProps extends PropsWithChildren {
 //     index: number;
@@ -23,15 +24,16 @@ interface TabMenuProps {
     children: ReactNode;
     index?: number;
 }
+const TabMenu: FC<TabMenuProps> = ({ children, index }) => {
+  const { tabIndex, setTabIndex } = useContext(TabContext);
+  const isActive = useMemo(() => tabIndex === index, [tabIndex, index])
   
-  const TabMenu: FC<TabMenuProps> = ({ children, index }) => {
-    const { setTabIndex } = useContext(TabContext);
-  
-    return (
-        <div onClick={() => setTabIndex(index ?? 0)}>
-        {children}
-      </div>
-    );
+  return (
+    <div className={tabsMenuBaseCls} data-active={isActive} onClick={() => setTabIndex(index ?? 0)}>
+      {/* <div class="ys-tabs-mane" data-active="false">Menu1</div> */}
+      {children}
+    </div>
+  );
 };
 
 export default TabMenu;

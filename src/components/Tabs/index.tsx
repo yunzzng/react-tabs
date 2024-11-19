@@ -2,6 +2,7 @@ import { createContext, FC, useState, Dispatch, SetStateAction, ReactNode, clone
 import TabMenuList from "./TabMenuList";
 import TabPanel from "./TabPannel";
 import TabMenu from "./TabMenu";
+import { tabsBaseCls } from '../../consts/className'
 
 interface TabsContextProps {
     tabIndex: number;
@@ -23,11 +24,12 @@ interface TabsProps {
     children: ReactNode;
     onChangeTab?: (tabIndex: number) => void;
     defaultTabIndex?: number;
+    className?: string; 
 }
 
 // const Tabs: FC<PropsWithChildren> = ({ children }) => {
 // const Tabs: FC<{ children: ReactNode }> = ({ children }) => 
-const Tabs: FC<TabsProps> & TabsCompoundProps = ({ children, onChangeTab, defaultTabIndex = 0 }) =>{
+const Tabs: FC<TabsProps> & TabsCompoundProps = ({ className, children, onChangeTab, defaultTabIndex = 0 }) =>{
     // const [tabIndex, setTabIndex] = useState<number>(0);
     const [tabIndex, setTabIndex] = useState<number>(defaultTabIndex);
 
@@ -62,12 +64,22 @@ const Tabs: FC<TabsProps> & TabsCompoundProps = ({ children, onChangeTab, defaul
         ) as ReactElement[];
     }, [children]);
 
+    // props로 className 넘겨주면 해당 className이랑 붙여서(한칸 띄어서) 사용;
+    // 안넘겨주면, 원래 기존에 있던 BaseCls 사용;
+    // const tabsCls = classNameProp ? `${classNameProp} ${tabsBaseCls}` : tabsBaseCls;
+    const tabsCls = useMemo(() => {
+        return className ? `${className} ${tabsBaseCls}` : tabsBaseCls;
+    }, [className]);
+
+
     return (
         <TabContext.Provider value={contextValue}>
-            {tabMenuComponents}
-            {tabPanelComponents.map((tabPanel, index) =>
-                cloneElement(tabPanel, { ...tabPanel.props, index })
-            )}
+            <div className={tabsCls}>
+                {tabMenuComponents}
+                {tabPanelComponents.map((tabPanel, index) =>
+                    cloneElement(tabPanel, { ...tabPanel.props, index })
+                )}
+            </div>
         </TabContext.Provider>
     );
 };

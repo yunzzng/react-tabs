@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CarouselContext } from ".";
+import { carouselNavigatorCls } from "../../consts/className";
 
 const CarouselNavigator = () => {
     const { setCarouselIndex, itemLength } = useContext(CarouselContext);
@@ -15,7 +16,7 @@ const CarouselNavigator = () => {
     };
 
     return (
-        <div>
+        <div className={carouselNavigatorCls}>
             <button onClick={handlePrevious}>{"<"}</button>
             <button onClick={handleNext}>{">"}</button>
         </div>
