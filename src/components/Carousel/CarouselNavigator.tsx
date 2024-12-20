@@ -1,8 +1,12 @@
-import { useContext } from "react";
+import { FC, useContext, useMemo } from "react";
 import { CarouselContext } from ".";
-import { carouselNavigatorCls } from "../../consts/className";
+import { carouselNavigatorBaseCls } from "../../consts/className";
 
-const CarouselNavigator = () => {
+interface CarouselNavigatorProps {
+    className?: string; 
+  }
+
+const CarouselNavigator: FC<CarouselNavigatorProps> = ({ className }) =>  {
     const { setCarouselIndex, itemLength } = useContext(CarouselContext);
 
     // const handlePrevious = () => {
@@ -24,6 +28,10 @@ const CarouselNavigator = () => {
             }
         });
     };
+
+    const carouselNavigatorCls = useMemo(() => {
+        return className ? `${className} ${carouselNavigatorBaseCls}` : carouselNavigatorBaseCls;
+      }, [className]);
 
     return (
         <div className={carouselNavigatorCls}>

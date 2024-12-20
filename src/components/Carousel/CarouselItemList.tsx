@@ -1,10 +1,18 @@
-import { FC, PropsWithChildren } from "react";
-import { carouselItemListCls } from "../../consts/className";
+import { FC, PropsWithChildren, useMemo } from "react";
+import { carouselItemListBaseCls } from "../../consts/className";
 
-interface CarouselItemListProps extends PropsWithChildren {}
+interface CarouselItemListProps extends PropsWithChildren {
+    className?: string; 
+}
 
-const CarouselItemList: FC<CarouselItemListProps> = (props) => {
+const CarouselItemList: FC<CarouselItemListProps> = (props, className) => {
     const { children } = props;
+
+    const carouselItemListCls = useMemo(() => {
+        return className ? `${className} ${carouselItemListBaseCls}` : carouselItemListBaseCls;
+      }, [className]);
+
+
     return (
         <div className={carouselItemListCls}>
             {children}

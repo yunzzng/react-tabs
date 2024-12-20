@@ -4,7 +4,7 @@
     "jsx" : "react-jsx",
     "esModuleInterop" : true,
     "target": "ES2022",
-    "lib": ["ES2023"],
+    "lib": ["DOM", "ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
 
@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     // "noUncheckedSideEffectImports": true
   },
-  "include": ["src/components"]
+  "include": ["src/components", "src/components/Breadcrumb/Internal/BreadcrumbSeparator.tsx"]
 }

@@ -1,9 +1,17 @@
-import { useContext, useMemo } from "react";
+import { FC, useContext, useMemo } from "react";
 import { CarouselContext } from ".";
-import { carouselIndicatorCls } from '../../consts/className';
+import { carouselIndicatorBaseCls } from '../../consts/className';
 
-const CarouselIndicator = () => {
+interface CarouselIndicatorProps {
+  className?: string; 
+}
+
+const CarouselIndicator: FC<CarouselIndicatorProps> = ({ className }) => {
   const { carouselIndex, setCarouselIndex, itemLength } = useContext(CarouselContext);
+
+  const carouselIndicatorCls = useMemo(() => {
+    return className ? `${className} ${carouselIndicatorBaseCls}` : carouselIndicatorBaseCls;
+  }, [className]);
 
   return (
     <div className={carouselIndicatorCls}>

@@ -1,26 +1,27 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-import Tabs from './components/Tabs'
-// import TabMenuList from './components/Tabs/TabMenuList'
-// import TabMenu from './components/Tabs/TabMenu'
-import TabPannel from './components/Tabs/TabPannel'
-import Carousel from './components/Carousel'
-// import CarouselItemList from './components/Carousel/CarouselItemList'
-// import CarouselItem from './components/Carousel/CarouselItem'
-// import CarouselNavigator from './components/Carousel/CarouselNavigator'
-// import CarouselIndicator from './components/Carousel/CarouselIndicator'
-// import Counter from './components/Counter'
+import { Tabs, Carousel, Calendar, Pagination, Breadcrumb, Popover } from './components'
+import { useState } from 'react';
 
 
 function App() {
+  const [, setActiveTab] = useState<number>(0); 
   const onChangeTab = (tabIndex: number) => {
-    console.log(`Selected Tab Index: ${tabIndex}`);
+    setActiveTab(tabIndex);
   };
+
+  const [date, setDate] = useState<Date>(new Date());
+  const handleChangeDate = (newDate: Date) => {
+    setDate(newDate);
+  };
+
+  const [page, setPage] = useState<number>(1);
+  const handlePageChange = (newPage: number) => {
+    setPage(newPage);
+  };
+
 
   return (
     <>
+      <h2>Tabs</h2>
       <Tabs onChangeTab={onChangeTab} defaultTabIndex={0}>
         <Tabs.MenuList>
           {/* <TabMenu index={1}>Menu1</TabMenu>
@@ -33,11 +34,12 @@ function App() {
         {/* <TabPannel index={1}>Content1</TabPannel>
         <TabPannel index={2}>Content2</TabPannel>
         <TabPannel index={3}>Content3</TabPannel> */}
-        <TabPannel>Content1</TabPannel>
-        <TabPannel>Content2</TabPannel>
-        <TabPannel>Content3</TabPannel>
+        <Tabs.Pannel>Content1</Tabs.Pannel>
+        <Tabs.Pannel>Content2</Tabs.Pannel>
+        <Tabs.Pannel>Content3</Tabs.Pannel>
       </Tabs>
 
+      <h2>Carousel</h2>
       <Carousel >
          <Carousel.ItemList>
             <Carousel.Item index={0}>1</Carousel.Item>
@@ -48,7 +50,40 @@ function App() {
          <Carousel.Indicator/>
       </Carousel>
 
-      {/* <Counter/> */}
+      <h2>Breadcrumb</h2>
+      <Breadcrumb width='200px'>
+        <Breadcrumb.Item href='/a'>A</Breadcrumb.Item>
+        <Breadcrumb.Item href='/a-a'>A-A</Breadcrumb.Item>
+        <Breadcrumb.Item href='/a-a-a'>A-A-A</Breadcrumb.Item> 
+        <Breadcrumb.Item href='/a-a-a-a'>A-A-A-A</Breadcrumb.Item> 
+      </Breadcrumb>
+
+      <h2>Pagination</h2>
+      <Pagination itemLength={235} value={page} itemCountPerPage={10} onPageChange={handlePageChange}>
+        <Pagination.PageButtons />
+        <Pagination.Navigator />
+      </Pagination>
+
+      <h2>Popover</h2>
+      {/* <Popover>
+        <Popover.Trigger>Open</Popover.Trigger>
+        <Popover.Content>Place content for the popover here.</Popover.Content>
+      </Popover> */}
+
+      {/* Uncontrolled Calendar */}
+      {/* <h2>Uncontrolled Calendar</h2>
+      <Calendar defaultValue={new Date()}>
+        <Calendar.Current />
+        <Calendar.Navigator />
+        <Calendar.Body />
+      </Calendar> */}
+
+      <h2>Controlled Calendar</h2>
+      <Calendar onChange={handleChangeDate} value={date}>
+        <Calendar.Current />
+        <Calendar.Navigator/>
+        <Calendar.Body />
+      </Calendar>
     </>
   )
 }

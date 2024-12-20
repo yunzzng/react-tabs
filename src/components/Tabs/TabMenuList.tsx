@@ -20,9 +20,15 @@ import { tabsMenuListBaseCls } from '../../consts/className'
 interface TabMenuProps {
   children: ReactNode;
   index?: number;
+  className?: string; 
 }
 
-const TabMenuList: FC<{ children: ReactNode }> = ({ children }) => {
+interface TabMenuListProps {
+  children: ReactNode;
+  className?: string;
+}
+
+const TabMenuList: FC<TabMenuListProps> = ({ children, className }) => {
   const tabMenuComponents = useMemo(() => (
     <>
   {Children.map(children, (menu, index) => 
@@ -31,8 +37,12 @@ const TabMenuList: FC<{ children: ReactNode }> = ({ children }) => {
     </>
   ), [children]); 
 
+  const tabsMenuListCls = useMemo(() => {
+    return className ? `${className} ${tabsMenuListBaseCls}` : tabsMenuListBaseCls;
+  }, [className]);
+
   return (
-    <div className={tabsMenuListBaseCls}>
+    <div className={tabsMenuListCls}>
       {tabMenuComponents}
     </div>
     )

@@ -27,10 +27,8 @@ interface TabsProps {
     className?: string; 
 }
 
-// const Tabs: FC<PropsWithChildren> = ({ children }) => {
-// const Tabs: FC<{ children: ReactNode }> = ({ children }) => 
+
 const Tabs: FC<TabsProps> & TabsCompoundProps = ({ className, children, onChangeTab, defaultTabIndex = 0 }) =>{
-    // const [tabIndex, setTabIndex] = useState<number>(0);
     const [tabIndex, setTabIndex] = useState<number>(defaultTabIndex);
 
     const contextValue = {
@@ -44,14 +42,6 @@ const Tabs: FC<TabsProps> & TabsCompoundProps = ({ className, children, onChange
         }
     }, [tabIndex, onChangeTab]);
 
-    // const tabMenuList = Children.toArray(children).find(child =>
-    //     isValidElement(child) && child.type === TabMenuList
-    // );
-
-    // const tabPanels = Children.toArray(children).filter(child =>
-    //     isValidElement(child) && child.type === TabPanel
-    // ) as ReactElement[];
-
     const tabMenuComponents = useMemo(() => {
         return Children.toArray(children).find(child =>
             isValidElement(child) && child.type === TabMenuList
@@ -64,9 +54,6 @@ const Tabs: FC<TabsProps> & TabsCompoundProps = ({ className, children, onChange
         ) as ReactElement[];
     }, [children]);
 
-    // props로 className 넘겨주면 해당 className이랑 붙여서(한칸 띄어서) 사용;
-    // 안넘겨주면, 원래 기존에 있던 BaseCls 사용;
-    // const tabsCls = classNameProp ? `${classNameProp} ${tabsBaseCls}` : tabsBaseCls;
     const tabsCls = useMemo(() => {
         return className ? `${className} ${tabsBaseCls}` : tabsBaseCls;
     }, [className]);

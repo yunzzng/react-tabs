@@ -17,6 +17,11 @@ interface TabPanelProps {
     children: ReactNode;
     index?: number; 
 }
+
+interface TabPanelProps {
+  children: ReactNode;
+  className?: string;
+}
   
 //   const TabPanel: FC<TabPanelProps> = ({ children, index }) => {
 //     const { tabIndex } = useContext(TabContext);
@@ -24,15 +29,19 @@ interface TabPanelProps {
 //     return tabIndex === index ? <div>{children}</div> : null;
 // };
 
-const TabPanel: FC<TabPanelProps> = ({ children, index }) => {
+const TabPanel: FC<TabPanelProps> = ({ children, index, className }) => {
     const { tabIndex } = useContext(TabContext);
   
     const tabPanelComponents = useMemo(() => (
       tabIndex === index ? <div>{children}</div> : null
     ), [children, tabIndex, index]); 
-  
+
+    const tabsPannelCls = useMemo(() => {
+      return className ? `${className} ${tabsPannelBaseCls}` : tabsPannelBaseCls ;
+    }, [className]);
+
     return (
-      <div className={tabsPannelBaseCls}>
+      <div className={tabsPannelCls}>
         {tabPanelComponents}
       </div>
     )
