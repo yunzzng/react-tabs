@@ -1,6 +1,6 @@
 import { Tabs, Carousel, Calendar, Pagination, Breadcrumb, Popover } from './components'
 import { useState } from 'react';
-
+// import './App.css'
 
 function App() {
   const [, setActiveTab] = useState<number>(0); 
@@ -65,10 +65,10 @@ function App() {
       </Pagination>
 
       <h2>Popover</h2>
-      {/* <Popover>
+      <Popover>
         <Popover.Trigger>Open</Popover.Trigger>
-        <Popover.Content>Place content for the popover here.</Popover.Content>
-      </Popover> */}
+        <Popover.Content position="bottom-center">Place content for the popover here.</Popover.Content>
+      </Popover>
 
       {/* Uncontrolled Calendar */}
       {/* <h2>Uncontrolled Calendar</h2>
