@@ -7,13 +7,14 @@ interface PopoverContextProps {
     isOpen: boolean;
     toggle: () => void;
     close: () => void;
-    triggerRef: RefObject<HTMLButtonElement>;  // React의 useRef로 생성된 객체 타입
+    triggerRef: RefObject<HTMLElement>;  // React의 useRef로 생성된 객체 타입
+    triggerElem?: ReactNode;
 }
 
 interface PopoverProps {
     children: ReactNode;
     className?: string;
-    content?: ReactNode;
+    triggerElem?: ReactNode;    
 }
 
 interface PopoverCompoundProps {
@@ -26,9 +27,10 @@ const PopoverContext = createContext<PopoverContextProps>({
     toggle: () => {},
     close: () => {},
     triggerRef: { current: null },  // 기본값: RefObject의 초기 상태
+    triggerElem: null,
 });
 
-const Popover: FC<PopoverProps > & PopoverCompoundProps = ({ children, className })  => {
+const Popover: FC<PopoverProps > & PopoverCompoundProps = ({ children, className, triggerElem })  => {
     const [isOpen, setIsOpen] = useState(false);
     const triggerRef = useRef<HTMLButtonElement>(null);
     const toggle = () => setIsOpen((prev) => !prev);
@@ -40,6 +42,7 @@ const Popover: FC<PopoverProps > & PopoverCompoundProps = ({ children, className
             toggle,
             close,
             triggerRef,
+            triggerElem,
         }),
         [isOpen]
     );

@@ -2,7 +2,6 @@ import { Children, createContext, FC, ReactNode, useEffect, useMemo, useRef, use
 import BreadcrumbItem from "./BreadcrumbItem";
 import { breadcrumbBaseCls, breadcrumbSeparatorBaseCls } from "../../consts/className";
 import BreadcrumbSeparator from "./Internal/BreadcrumbSeparator";
-// import Popover from "../Popover"; 
 
 interface BreadcrumbContextProps {
     addItemWidth: (width: number) => void;
