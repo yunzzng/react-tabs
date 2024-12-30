@@ -1,26 +1,46 @@
 import { Tabs, Carousel, Calendar, Pagination, Breadcrumb, Popover } from './components'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import Progress from './components/Progress';
 // import './App.css'
 
+const sleep = async (time: number): Promise<void> => 
+  new Promise((resolve) => setTimeout(resolve, time));
+
 function App() {
+  // Tab
   const [, setActiveTab] = useState<number>(0); 
   const onChangeTab = (tabIndex: number) => {
     setActiveTab(tabIndex);
   };
 
+  // Claendar
   const [date, setDate] = useState<Date>(new Date());
   const handleChangeDate = (newDate: Date) => {
     setDate(newDate);
   };
 
+  // Pagination
   const [page, setPage] = useState<number>(1);
   const handlePageChange = (newPage: number) => {
     setPage(newPage);
   };
 
+  // Progress
+  const [stop, setStop] = useState<boolean>(false);
+  const getUserData = async () => {
+    await sleep(3000); 
+    setStop(true);
+  }
+  useEffect(() => {
+     getUserData();
+  }, [])  
+
 
   return (
     <>
+      <h2>Progress</h2>
+      <Progress stop={stop} className=""></Progress>
+
       <h2>Tabs</h2>
       <Tabs onChangeTab={onChangeTab} defaultTabIndex={0}>
         <Tabs.MenuList>

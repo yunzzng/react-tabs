@@ -36,3 +36,6 @@ export const paginationNavigatorBaseCls = getBaseCls("bpagination-navigator");
 export const popoverBaseCls= getBaseCls("popover");
 export const popoverContentBaseCls = getBaseCls("popover-content");
 export const popoverTriggertBaseCls = getBaseCls("popover-trigger");
+
+// Progress
+export const progressBaseCls= getBaseCls("progress");

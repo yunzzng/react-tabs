@@ -1,0 +1,35 @@
+1. setInterval, setTimeout 사용 안하는 이유
+    - setInterval과 setTimeout은 브라우저의 렌더링 주기와 동기화되지 않는다. > 애니메이션이 끊기거나 불규칙하게 보일 수 있다.
+    - setTimeout과 setInterval은 설정한 시간 간격에 따라 동작한다.
+        > 렌더링 주기보다 빠르게 실행되면 불필요한 작업이 추가로 수행한다.
+        > 렌더링 주기보다 느리게 실행되면 프레임 손실이 발생하여 애니메이션이 끊기게 된다.
+    - 브라우저 탭이 비활성화된 경우에도 계속 실행된다. > CPU 낭비
+
+    - requestAnimationFrame은 브라우저는 프레임을 생성하는 시점에 맞춰 콜백을 실행한다.
+        > 애니메이션 업데이트가 브라우저 렌더링 과정(Layout > Paint > Composite)과 정확히 동기화된다.
+        > 불필요한 작업이나 프레임 손실이 없다.
+    - 브라우저는 비활성 탭(백그라운드 상태)에서 requestAnimationFrame 호출을 자동으로 멈춘다.
+
+2. ex 화면 주사율이 60일 경우
+    > 초당 60프레임(16.666666 ...)마다 프레임 생성
+
+3. 화면 주사율 구하기(자바스크립트)
+    > 1초에 requestAnimationFrame 몇번 실행되는지
+
+4. 자바스크립트 엔진 콜백 큐(Callback Queue) 종류
+    (1) 매크로 태스크 큐(Macro-task Queue)
+        - 작업이 대기하는 큐(비동기 작업)
+        - setTimeout, setInterval ...
+
+    (2) 마이크로 태스크 큐(Micro-task Queue)
+        - 현재 실행 중인 코드가 끝난 후, 다음 매크로 태스크가 실행되기 전에 실행
+        - Promise의 then, catch, finally ...
+
+5. requestAnimationFrame 포함 여부 > 포함되지 않는다.
+    (1) 렌더링 큐(Rendering Queue)
+        - 마이크로 태스크가 모두 처리된 후, 매크로 태스크가 실행되기 전에 호출
+        - 화면 업데이트와 관련된 태스크를 처리
+        - requestAnimationFrame
+           
+6. 우선순위
+    - 마이크로 테스크 > 렌더링 큐 > 매크로 큐
