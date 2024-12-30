@@ -30,7 +30,7 @@ npm install yunseul-ui-elements
         <Tabs.Pannel>Content2</Tabs.Pannel>
         <Tabs.Pannel>Content3</Tabs.Pannel>
       </Tabs>
-  ```
+    ```
 
 ### 2. Carousel
 #### 이미지 또는 콘텐츠를 슬라이드로 전환하며 표시하는 컴포넌트
