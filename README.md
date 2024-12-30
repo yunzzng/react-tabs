@@ -1,5 +1,4 @@
 # React UI kit (yunseul-ui-elements)
-***
 
 ## 프로젝트 소개
 >  React를 기반으로 한 UI 컴포넌트 라이브러리
@@ -32,6 +31,7 @@ npm install yunseul-ui-elements
       </Tabs>
     ```
 
+***
 ### 2. Carousel
 #### 이미지 또는 콘텐츠를 슬라이드로 전환하며 표시하는 컴포넌트
   - Children
@@ -54,6 +54,7 @@ npm install yunseul-ui-elements
       </Carousel>
     ```
 
+***
 ### 3. Calendar
 #### 날짜를 선택하거나 날짜 정보를 표시하는 컴포넌트
   - Children
@@ -71,6 +72,7 @@ npm install yunseul-ui-elements
       </Calendar>
     ```
 
+***
 ### 4. Breadcrumb
 #### 현재 위치를 나타내는 네비게이션 컴포넌트
   - Children
@@ -102,6 +104,7 @@ npm install yunseul-ui-elements
       </Pagination>
     ```
 
+***
 ### 6. Popover
 #### 클릭 시 추가 정보를 보여주는 팝업 창 컴포넌트
   - Children
@@ -117,6 +120,7 @@ npm install yunseul-ui-elements
       </Popover>
     ```
 
+***
 ### 7. Progress
 #### 진행 상태를 시각적으로 나타내는 컴포넌트
   - Children
