@@ -3,19 +3,21 @@
 ## 프로젝트 소개
 >  React를 기반으로 한 UI 컴포넌트 라이브러리
 
+
 ## 사용 방법
 ```
 npm install yunseul-ui-elements
 ```
 
+
 ## Components
 ### 1. Tabs
 #### 여러 콘텐츠를 탭으로 분리해서 각 탭을 클릭하여 콘텐츠를 볼 수 있는 컴포넌트
   - Children
-    - <Tabs>: 탭의 상태와 동작을 관리하는 컨텍스트
-    - <Tabs.MenuList>: 탭 메뉴의 리스트
-    - <Tabs.Menu>: 각각의 탭을 나타냄
-    - <Tabs.Pannel>: 각 탭에 해당하는 콘텐츠 영역
+    - `<Tabs>`: 탭의 상태와 동작을 관리하는 컨텍스트
+    - `<Tabs.MenuList>`: 탭 메뉴의 리스트
+    - `<Tabs.Menu>`:` 각각의 탭을 나타냄
+    - `<Tabs.Pannel>`: 각 탭에 해당하는 콘텐츠 영역
 
   - 사용 예시
     ```tsx
