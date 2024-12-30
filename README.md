@@ -37,11 +37,11 @@ npm install yunseul-ui-elements
 ### 2. Carousel
 #### 이미지 또는 콘텐츠를 슬라이드로 전환하며 표시하는 컴포넌트
   - Children
-    - <Carousel>: 슬라이드 상태와 전환 동작을 관리하는 컨텍스트 
-    - <Carousel.ItemList>: 슬라이드 아이템
-    - <Carousel.Item>: 각각의 슬라이드 콘텐츠
-    - <Carousel.Navigator>: 이전/다음 버튼
-    - <Carousel.Indicator>: 현재 슬라이드 위치를 나타내는 인디케이터
+    - `<Carousel>`: 슬라이드 상태와 전환 동작을 관리하는 컨텍스트 
+    - `<Carousel.ItemList>`: 슬라이드 아이템
+    - `<Carousel.Item>`: 각각의 슬라이드 콘텐츠
+    - `<Carousel.Navigator>`: 이전/다음 버튼
+    - `<Carousel.Indicator>`: 현재 슬라이드 위치를 나타내는 인디케이터
 
   - 사용 예시
     ```tsx
@@ -60,10 +60,10 @@ npm install yunseul-ui-elements
 ### 3. Calendar
 #### 날짜를 선택하거나 날짜 정보를 표시하는 컴포넌트
   - Children
-    - <Calendar>: 캘린더 상태 및 동작을 관리하는 컨텍스트
-    - <Calendar.Current>: 현재 선택된 월/년을 표시
-    - <Calendar.Navigator>: 이전/다음 월로 이동
-    - <Calendar.Body>: 날짜 정보
+    - `<Calendar>`: 캘린더 상태 및 동작을 관리하는 컨텍스트
+    - `<Calendar.Current>`: 현재 선택된 월/년을 표시
+    - `<Calendar.Navigator>`: 이전/다음 월로 이동
+    - `<Calendar.Body>`: 날짜 정보
 
   - 사용 예시
     ```tsx
@@ -78,8 +78,8 @@ npm install yunseul-ui-elements
 ### 4. Breadcrumb
 #### 현재 위치를 나타내는 네비게이션 컴포넌트
   - Children
-    - <Breadcrumb>: 경로 상태를 관리하는 컨텍스트
-    - <Breadcrumb.Item>: 각각의 경로
+    - `<Breadcrumb>`: 경로 상태를 관리하는 컨텍스트
+    - `<Breadcrumb.Item>`: 각각의 경로
 
   - 사용 예시
     ```tsx
@@ -94,9 +94,9 @@ npm install yunseul-ui-elements
 ### 5. Pagination
 #### 데이터를 여러 페이지로 나누어서 표시하여 페이지 간 이동이 가능한 컴포넌트
   - Children
-    - <Pagination>: 페이지 상태와 동작을 관리하는 컨텍스트
-    - <Pagination.PageButtons>: 페이지 번호 버튼
-    - <Pagination.Navigator>: 이전/다음 페이지 버튼
+    - `<Pagination>`: 페이지 상태와 동작을 관리하는 컨텍스트
+    - `<Pagination.PageButtons>`: 페이지 번호 버튼
+    - `<Pagination.Navigator>`: 이전/다음 페이지 버튼
     
   - 사용 예시
     ```tsx
@@ -110,9 +110,9 @@ npm install yunseul-ui-elements
 ### 6. Popover
 #### 클릭 시 추가 정보를 보여주는 팝업 창 컴포넌트
   - Children
-    - <Popover>: 팝업 상태와 동작을 관리하는 컨텍스트
-    - <Popover.Trigger>: 팝업을 열기 위한 트리거
-    - <Popover.Content>: 팝업에 표시할 콘텐츠
+    - `<Popover>`: 팝업 상태와 동작을 관리하는 컨텍스트
+    - `<Popover.Trigger>`: 팝업을 열기 위한 트리거
+    - `<Popover.Content>`: 팝업에 표시할 콘텐츠
     
   - 사용 예시
     ```tsx
@@ -126,7 +126,7 @@ npm install yunseul-ui-elements
 ### 7. Progress
 #### 진행 상태를 시각적으로 나타내는 컴포넌트
   - Children
-    - <Progress>: 진행 상태 관리
+    - `<Progress>`: 진행 상태 관리
     
   - 사용 예시
     ```tsx
