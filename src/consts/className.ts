@@ -39,3 +39,19 @@ export const popoverTriggertBaseCls = getBaseCls("popover-trigger");
 
 // Progress
 export const progressBaseCls= getBaseCls("progress");
+
+// Modal
+export const modalBaseCls= getBaseCls("modal");
+export const modalBackdropBaseCls= getBaseCls("modal-backdrop");
+export const modalTriggerBaseCls= getBaseCls("modal-trigger");
+export const modalContentBaseCls= getBaseCls("modal-content");
+export const modalButtonBaseCls = getBaseCls("modal-button");
+
+// DatePicker
+export const DatePickerBaseCls = getBaseCls("datepicker");
+
+// Select
+export const SelectBaseCls = getBaseCls("select");
+export const SelectTriggerBaseCls = getBaseCls("select-trigger");
+export const SelectContentBaseCls = getBaseCls("select-content");
+export const SelectItemBaseCls = getBaseCls("select-item");

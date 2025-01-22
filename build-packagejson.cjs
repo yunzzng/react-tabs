@@ -10,7 +10,7 @@ const getPackageJsonData = () => {
     packageJson.dependencies;
   return {
     // 배포를 할 때마다 버전 수정해야됨
-    version: "0.0.10",
+    version: "0.0.11",
     name: packageName,
     main: "./index.cjs",
     module: "./index.js",

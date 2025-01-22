@@ -1,14 +1,24 @@
-import { Tabs, Carousel, Calendar, Pagination, Breadcrumb, Popover } from './components'
-import { useEffect, useState } from 'react';
-import Progress from './components/Progress';
+import {
+  Tabs,
+  Carousel,
+  Calendar,
+  Pagination,
+  Breadcrumb,
+  Popover,
+  Modal,
+  DatePicker,
+  Select,
+} from "./components";
+import { useEffect, useState } from "react";
+import Progress from "./components/Progress";
 // import './App.css'
 
-const sleep = async (time: number): Promise<void> => 
+const sleep = async (time: number): Promise<void> =>
   new Promise((resolve) => setTimeout(resolve, time));
 
 function App() {
   // Tab
-  const [, setActiveTab] = useState<number>(0); 
+  const [, setActiveTab] = useState<number>(0);
   const onChangeTab = (tabIndex: number) => {
     setActiveTab(tabIndex);
   };
@@ -28,13 +38,35 @@ function App() {
   // Progress
   const [stop, setStop] = useState<boolean>(false);
   const getUserData = async () => {
-    await sleep(3000); 
+    await sleep(3000);
     setStop(true);
-  }
+  };
   useEffect(() => {
-     getUserData();
-  }, [])  
+    getUserData();
+  }, []);
 
+  // Modal
+  const [isOpen, setIsOpen] = useState<boolean>();
+
+  const handleOpenModal = () => {
+    setIsOpen(true);
+  };
+  const handleCloseModal = () => {
+    setIsOpen(false);
+  };
+
+  // Datepicker
+  const handleChangeDatePicker = (date: Date) => {
+    console.log(date);
+  };
+
+  // Select
+  const [selectedValue, setSelectedValue] = useState<string>("");
+
+  const handleChangeValue = (selectedValue: string) => {
+    console.log("선택한 아이템:", selectedValue);
+    setSelectedValue(selectedValue);
+  };
 
   return (
     <>
@@ -60,26 +92,31 @@ function App() {
       </Tabs>
 
       <h2>Carousel</h2>
-      <Carousel >
-         <Carousel.ItemList>
-            <Carousel.Item index={0}>1</Carousel.Item>
-            <Carousel.Item index={1}>2</Carousel.Item>
-            <Carousel.Item index={2}>3</Carousel.Item>
-         </Carousel.ItemList>
-         <Carousel.Navigator/>
-         <Carousel.Indicator/>
+      <Carousel>
+        <Carousel.ItemList>
+          <Carousel.Item index={0}>1</Carousel.Item>
+          <Carousel.Item index={1}>2</Carousel.Item>
+          <Carousel.Item index={2}>3</Carousel.Item>
+        </Carousel.ItemList>
+        <Carousel.Navigator />
+        <Carousel.Indicator />
       </Carousel>
 
       <h2>Breadcrumb</h2>
-      <Breadcrumb width='200px'>
-        <Breadcrumb.Item href='/a'>A</Breadcrumb.Item>
-        <Breadcrumb.Item href='/a-a'>A-A</Breadcrumb.Item>
-        <Breadcrumb.Item href='/a-a-a'>A-A-A</Breadcrumb.Item> 
-        <Breadcrumb.Item href='/a-a-a-a'>A-A-A-A</Breadcrumb.Item> 
+      <Breadcrumb width="200px">
+        <Breadcrumb.Item href="/a">A</Breadcrumb.Item>
+        <Breadcrumb.Item href="/a-a">A-A</Breadcrumb.Item>
+        <Breadcrumb.Item href="/a-a-a">A-A-A</Breadcrumb.Item>
+        <Breadcrumb.Item href="/a-a-a-a">A-A-A-A</Breadcrumb.Item>
       </Breadcrumb>
 
       <h2>Pagination</h2>
-      <Pagination itemLength={235} value={page} itemCountPerPage={10} onPageChange={handlePageChange}>
+      <Pagination
+        itemLength={235}
+        value={page}
+        itemCountPerPage={10}
+        onPageChange={handlePageChange}
+      >
         <Pagination.PageButtons />
         <Pagination.Navigator />
       </Pagination>
@@ -87,8 +124,53 @@ function App() {
       <h2>Popover</h2>
       <Popover>
         <Popover.Trigger>Open</Popover.Trigger>
-        <Popover.Content position="bottom-center">Place content for the popover here.</Popover.Content>
+        <Popover.Content position="bottom-center">
+          Place content for the popover here.
+        </Popover.Content>
       </Popover>
+
+      <h2>Modal</h2>
+      {/* <Modal
+        onOpenModal={handleOpenModal}
+        onCloseModal={handleCloseModal}
+        open={isOpen}
+      >
+        <Modal.Backdrop />
+        <Modal.Trigger />
+        <Modal.Content>
+          <div>Modal Content</div>
+          <Modal.Close />
+        </Modal.Content>
+      </Modal> */}
+      <Modal
+        onOpenModal={handleOpenModal}
+        onCloseModal={handleCloseModal}
+        open={isOpen}
+      >
+        <Modal.Backdrop />
+        <Modal.Trigger>
+          {/** Trigger UI를 사용자 단에서 자유롭게 설정 가능하게 **/}
+          <a href="#">Custom Trigger-1</a>
+          <h1>Custom Trigger-2</h1>
+          <div>Custom Trigger-3</div>
+        </Modal.Trigger>
+        <Modal.Content>
+          {/** Close UI를 사용자 단에서 자유롭게 설정 가능하게 **/}
+          <h2>Modal Content</h2>
+          <Modal.Close>
+            {/** slot형태 **/}
+            <a href="#" className="closeBtn_a">
+              Custom Modal Close
+            </a>
+            <p
+              className="closeBtn_p"
+              style={{ position: "absolute", top: "2px", right: "20px" }}
+            >
+              x
+            </p>
+          </Modal.Close>
+        </Modal.Content>
+      </Modal>
 
       {/* Uncontrolled Calendar */}
       {/* <h2>Uncontrolled Calendar</h2>
@@ -101,11 +183,29 @@ function App() {
       <h2>Controlled Calendar</h2>
       <Calendar onChange={handleChangeDate} value={date}>
         <Calendar.Current />
-        <Calendar.Navigator/>
+        <Calendar.Navigator />
         <Calendar.Body />
       </Calendar>
+
+      <h2>DatePicker</h2>
+      <DatePicker
+        date={new Date("2024-7-5")}
+        onChangeDate={handleChangeDatePicker}
+      />
+
+      <h2>Select</h2>
+      <Select onChange={handleChangeValue} value={selectedValue}>
+        <Select.Trigger />
+        <Select.Content>
+          <Select.Item value={"1"}>One</Select.Item>
+          <Select.Item value={"2"}>Two</Select.Item>
+          <Select.Item value={"3"}>Three</Select.Item>
+          <Select.Item value={"4"}>😁</Select.Item>
+          <Select.Item value={"5"}>🐷</Select.Item>
+        </Select.Content>
+      </Select>
     </>
-  )
+  );
 }
 
 export default App;

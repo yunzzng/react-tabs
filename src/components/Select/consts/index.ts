@@ -1,0 +1,1 @@
+export const DEFAULT_TRIGGER_PLACEHOLDER = "선택하세요";
