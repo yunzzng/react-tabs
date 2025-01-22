@@ -117,7 +117,7 @@ function App() {
           {/* to가 몇번째 캐러셀 아이템인지 */}
           {(indexs, to) =>
             indexs.map((index) => (
-              <span onClick={() => to(index)}>{index + 1}</span>
+              <span key={index} onClick={() => to(index)}>{index + 1}</span>
             ))
           }
         </Carousel.Indicator>

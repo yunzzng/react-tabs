@@ -85,7 +85,7 @@ npm install yunseul-ui-elements
     <Carousel.Indicator>
       {(indexs, to) =>
         indexs.map((index) => (
-          <span onClick={() => to(index)}>{index + 1}</span>
+          <span key={index} onClick={() => to(index)}>{index + 1}</span>
         ))
       }
     </Carousel.Indicator>
@@ -273,6 +273,19 @@ npm install yunseul-ui-elements
 
 - 사용 예시
 
-  ```tsx
-
+  ```html
+  <Accordion>
+    <Accordion.Item id={0}>
+      <Accordion.Header>
+        <Accordion.Trigger>Header 1</Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content>Content 1</Accordion.Content>
+    </Accordion.Item>
+    <Accordion.Item id={1}>
+      <Accordion.Header>
+        <Accordion.Trigger>Header 2</Accordion.Trigger>
+      </Accordion.Header>
+      <Accordion.Content>Content 2</Accordion.Content>
+    </Accordion.Item>
+  </Accordion>
   ```
