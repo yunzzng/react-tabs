@@ -1,5 +1,5 @@
 import { FC, ReactNode, useContext, useMemo } from "react";
-import { modalContentBaseCls } from "../../consts/className";
+import { modalContentBaseCls } from "@consts/className";
 import { createPortal } from "react-dom";
 import { ModalContext } from ".";
 

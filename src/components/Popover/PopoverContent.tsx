@@ -1,5 +1,5 @@
 import { FC, ReactNode, useContext, useEffect, useMemo, useRef } from "react";
-import { popoverContentBaseCls } from "../../consts/className";
+import { popoverContentBaseCls } from "@consts/className";
 import { PopoverContext } from ".";
 import { createPortal } from "react-dom";
 

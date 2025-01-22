@@ -1,5 +1,5 @@
 import { FC, useEffect, useMemo, useRef } from "react";
-import { progressBaseCls } from "../../consts/className";
+import { progressBaseCls } from "@consts/className";
 
 interface ProgressProps {
     stop: boolean;

@@ -2,7 +2,7 @@ import { createContext, FC, useState, Dispatch, SetStateAction, ReactNode, clone
 import TabMenuList from "./TabMenuList";
 import TabPanel from "./TabPannel";
 import TabMenu from "./TabMenu";
-import { tabsBaseCls } from '../../consts/className'
+import { tabsBaseCls } from '@consts/className'
 
 interface TabsContextProps {
     tabIndex: number;

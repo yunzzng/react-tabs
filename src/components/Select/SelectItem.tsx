@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext, useMemo } from "react";
-import { SelectItemBaseCls } from "../../consts/className";
+import { SelectItemBaseCls } from "@consts/className";
 import { SelectContext } from ".";
-import { usePopover } from "../Popover";
+import { usePopover } from "@ui/Popover";
 
 interface SelectItemProps {
   value: string;

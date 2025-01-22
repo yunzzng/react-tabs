@@ -3,7 +3,7 @@ import ModalBackdrop from "./ModalBackdrop";
 import ModalTrigger from "./ModalTrigger";
 import ModalContent from "./ModalContent";
 import ModalClose from "./ModalClose";
-import { modalBaseCls } from "../../consts/className";
+import { modalBaseCls } from "@consts/className";
 
 interface ModalContextProps {
   isOpen: boolean;

@@ -11,7 +11,7 @@ import {
 } from "vite";
 import dts from "vite-plugin-dts";
 import react from "@vitejs/plugin-react";
-// import path from "node:path";
+import path from "node:path";
 
 export default defineConfig({
   plugins: [
@@ -22,6 +22,18 @@ export default defineConfig({
       rollupTypes: true,
     }),
   ],
+  resolve: {
+    alias: [
+      {
+        find: "@ui",
+        replacement: path.resolve(__dirname, "src/components")
+      },
+      {
+        find: "@consts",
+        replacement: path.resolve(__dirname, "src/consts")
+      }
+    ]
+  },
   build: {
     lib: {
       // entry: path.resolve(__dirname, "src/components/index.ts"),

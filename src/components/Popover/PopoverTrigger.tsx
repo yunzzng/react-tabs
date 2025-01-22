@@ -1,6 +1,6 @@
 import { cloneElement, FC, isValidElement, ReactElement, ReactNode, Ref, useContext, useMemo } from "react";
 import { PopoverContext } from ".";
-import { popoverTriggertBaseCls } from "../../consts/className";
+import { popoverTriggertBaseCls } from "@consts/className";
 
 interface PopoverTriggerProps {
   children: ReactNode | ((isOpen: boolean) => ReactElement);

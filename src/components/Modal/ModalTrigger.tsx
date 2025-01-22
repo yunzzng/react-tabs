@@ -7,7 +7,7 @@ import {
   ReactElement,
   isValidElement,
 } from "react";
-import { modalTriggerBaseCls } from "../../consts/className";
+import { modalTriggerBaseCls } from "@consts/className";
 import { ModalContext } from ".";
 
 interface ModalTriggerProps {

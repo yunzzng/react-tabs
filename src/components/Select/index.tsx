@@ -1,9 +1,9 @@
 import { createContext, FC, ReactNode, useMemo, useState } from "react";
 import SelectTrigger from "./SelectTrigger";
 import SelectContent from "./SelectContent";
-import Popover from "../Popover";
+import Popover from "@ui/Popover";
 import SelectItem from "./SelectItem";
-import { SelectBaseCls } from "../../consts/className";
+import { SelectBaseCls } from "@consts/className";
 
 interface SelectProps {
   value: string;

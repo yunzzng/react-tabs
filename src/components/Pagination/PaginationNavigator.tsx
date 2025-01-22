@@ -1,6 +1,6 @@
 import { FC, useContext, useMemo } from "react";
 import { PaginationContext } from ".";
-import { paginationNavigatorBaseCls } from "../../consts/className";
+import { paginationNavigatorBaseCls } from "@consts/className";
 
 interface PaginationNavigatorProps {
     className?: string; 

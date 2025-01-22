@@ -1,5 +1,5 @@
 import { createContext, FC, ReactNode, RefObject, useContext, useMemo, useRef, useState } from "react";
-import { popoverBaseCls } from "../../consts/className";
+import { popoverBaseCls } from "@consts/className";
 import PopoverTrigger from "./PopoverTrigger";
 import PopoverContent from "./PopoverContent";
 

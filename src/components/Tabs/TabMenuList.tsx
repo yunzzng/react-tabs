@@ -1,5 +1,5 @@
 import { Children, cloneElement, FC, isValidElement, ReactElement, ReactNode, useMemo } from "react";
-import { tabsMenuListBaseCls } from '../../consts/className'
+import { tabsMenuListBaseCls } from '@consts/className'
 
 // interface TabMenuListProps extends PropsWithChildren {}
 

@@ -1,7 +1,7 @@
 import { createContext, useState, FC, ReactNode, useMemo, useEffect, Dispatch, SetStateAction } from "react";
 import PaginationPageButtons from "./PaginationPageButtons";
 import PaginationNavigator from "./PaginationNavigator";
-import { paginationBaseCls } from "../../consts/className";
+import { paginationBaseCls } from "@consts/className";
 
 interface PaginationContextProps {
     currentPage: number;

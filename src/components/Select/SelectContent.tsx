@@ -1,7 +1,7 @@
 import { FC, ReactNode, useMemo } from "react";
-import { usePopover } from "../Popover";
-import { SelectContentBaseCls } from "../../consts/className";
-import PopoverContent from "../Popover/PopoverContent";
+import { usePopover } from "@ui/Popover";
+import { SelectContentBaseCls } from "@consts/className";
+import PopoverContent from "@ui/Popover/PopoverContent";
 
 interface SelectCotentProps {
   children: ReactNode;

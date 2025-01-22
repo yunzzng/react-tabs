@@ -1,6 +1,6 @@
 import { FC, useContext, useMemo } from "react";
 import { CarouselContext } from ".";
-import { carouselIndicatorBaseCls } from '../../consts/className';
+import { carouselIndicatorBaseCls } from '@consts/className';
 
 interface CarouselIndicatorProps {
   className?: string; 

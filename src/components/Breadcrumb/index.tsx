@@ -1,6 +1,6 @@
 import { Children, createContext, FC, ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import BreadcrumbItem from "./BreadcrumbItem";
-import { breadcrumbBaseCls, breadcrumbSeparatorBaseCls } from "../../consts/className";
+import { breadcrumbBaseCls, breadcrumbSeparatorBaseCls } from "@consts/className";
 import BreadcrumbSeparator from "./Internal/BreadcrumbSeparator";
 
 interface BreadcrumbContextProps {

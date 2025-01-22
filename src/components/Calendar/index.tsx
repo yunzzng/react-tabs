@@ -11,7 +11,7 @@ import {
 import CalendarBody from "./CalendarBody";
 import CalendarCurrent from "./CalendarCurrent";
 import CalendarNavigator from "./CalendarNavigator";
-import { calendarBaseCls } from "../../consts/className";
+import { calendarBaseCls } from "@consts/className";
 
 interface CalendarContextProps {
   currentDate: Date;

@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from "react";
-import Calendar from "../Calendar";
-import Popover from "../Popover";
-import { DatePickerBaseCls } from "../../consts/className";
+import Calendar from "@ui/Calendar";
+import Popover from "@ui/Popover";
+import { DatePickerBaseCls } from "@consts/className";
 
 type PopoverPosition = "bottom-left" | "bottom-center" | "bottom-right";
 
@@ -11,7 +11,7 @@ interface DatePickerProps {
   className?: string;
   triggerClassName?: string;
   calendarClassName?: string;
-  calendarCurrentClassName?: string;
+  calendarCurrentClassName?: string; 
   calendarNavigatorClassName?: string;
   calendarBodyClassName?: string;
   popoverPosition?: PopoverPosition;

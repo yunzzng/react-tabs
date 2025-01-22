@@ -7,7 +7,7 @@ import {
   ReactElement,
   isValidElement,
 } from "react";
-import { modalButtonBaseCls } from "../../consts/className";
+import { modalButtonBaseCls } from "@consts/className";
 import { ModalContext } from ".";
 
 interface ModalButtonProps {

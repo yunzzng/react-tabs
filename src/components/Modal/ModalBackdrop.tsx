@@ -1,5 +1,5 @@
 import { FC, useContext, useMemo } from "react";
-import { modalBackdropBaseCls } from "../../consts/className";
+import { modalBackdropBaseCls } from "@consts/className";
 import { createPortal } from "react-dom";
 import { ModalContext } from ".";
 

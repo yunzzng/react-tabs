@@ -20,7 +20,11 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "paths": {
+      "@ui/*": ["./src/components/*"],
+      "@consts/*": ["./src/consts/*"]
+    }
   },
   "include": ["src", "src/components/Breadcrumb/Internal/BreadcrumbSeparator.tsx"]
 }

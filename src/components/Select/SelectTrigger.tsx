@@ -1,8 +1,8 @@
 import { FC, useContext, useMemo } from "react";
-import { usePopover } from "../Popover";
-import { SelectTriggerBaseCls } from "../../consts/className";
+import { usePopover } from "@ui/Popover";
+import { SelectTriggerBaseCls } from "@consts/className";
 import { SelectContext } from ".";
-import PopoverTrigger from "../Popover/PopoverTrigger";
+import PopoverTrigger from "@ui/Popover/PopoverTrigger";
 import { DEFAULT_TRIGGER_PLACEHOLDER } from "./consts";
 
 interface SelectTriggerProps {
