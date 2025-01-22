@@ -24,7 +24,7 @@ npm install yunseul-ui-elements
   - `<Tabs.Pannel>`: 각 탭에 해당하는 콘텐츠 영역
 
 - 사용 예시
-  ```html
+  ```tsx
   <Tabs onChangeTab={onChangeTab} defaultTabIndex={0}>
     <Tabs.MenuList>
       <Tabs.Menu>Menu1</Tabs.Menu>
@@ -52,8 +52,7 @@ npm install yunseul-ui-elements
   - `<Carousel.Indicator>`: 현재 슬라이드 위치를 나타내는 인디케이터
 
 - 사용 예시
-
-  ```html
+  ```tsx
   <Carousel>
     <Carousel.ItemList>
       <Carousel.Item index={0}>1</Carousel.Item>
@@ -66,7 +65,7 @@ npm install yunseul-ui-elements
   ```
 
   > 캐러셀 커스텀(내비게이터, 인디게이터)
-  ```html
+  ```tsx
   <Carousel>
     <Carousel.ItemList>
     <Carousel.Item index={0}>1</Carousel.Item>
@@ -106,7 +105,7 @@ npm install yunseul-ui-elements
   - `<Calendar.Body>`: 날짜 정보
 
 - 사용 예시
-  ```html
+  ```tsx
   <Calendar onChange={handleChangeDate} value={date}>
     <Calendar.Current />
     <Calendar.Navigator />
@@ -126,7 +125,7 @@ npm install yunseul-ui-elements
   - `<Breadcrumb.Item>`: 각각의 경로
 
 - 사용 예시
-  ```html
+  ```tsx
   <Breadcrumb width="200px">
     <Breadcrumb.Item href="/a">A</Breadcrumb.Item>
     <Breadcrumb.Item href="/a-a">A-A</Breadcrumb.Item>
@@ -147,7 +146,7 @@ npm install yunseul-ui-elements
   - `<Pagination.Navigator>`: 이전/다음 페이지 버튼
 
 - 사용 예시
-  ```html
+  ```tsx
   <Pagination
     itemLength={235}
     value={page}
@@ -171,7 +170,7 @@ npm install yunseul-ui-elements
   - `<Popover.Content>`: 팝업에 표시할 콘텐츠
 
 - 사용 예시
-  ```html
+  ```tsx
   <Popover>
     <Popover.Trigger>Open</Popover.Trigger>
     <Popover.Content position="bottom-center">
@@ -190,7 +189,7 @@ npm install yunseul-ui-elements
   - `<Progress>`: 진행 상태 관리
 
 - 사용 예시
-  ```html
+  ```tsx
   <Progress stop={stop} className=""></Progress>
   ```
 
@@ -209,7 +208,7 @@ npm install yunseul-ui-elements
   - `<Modal.Trigger>`: 모달 여는 트리거
 
 - 사용 예시
-  ```html
+  ```tsx
   <Modal>
     <Modal.Backdrop />
     <Modal.Trigger>{/** 모달 오픈버튼 **/}</Modal.Trigger>
@@ -231,7 +230,7 @@ npm install yunseul-ui-elements
   - `<DatePicker>`: 날짜 선택
 
 - 사용 예시
-  ```html
+  ```tsx
   <DatePicker date={new Date()} onChangeDate={handleChangeDatePicker} />
   ```
 
@@ -249,7 +248,7 @@ npm install yunseul-ui-elements
   - `<Select.Trigger>`: 드롭다운 열기 버튼
 
 - 사용 예시
-  ```html
+  ```tsx
   <Select onChange={handleChangeValue} value={selectedValue}>
     <Select.Trigger />
     <Select.Content>
@@ -275,8 +274,7 @@ npm install yunseul-ui-elements
   - `<Accordion.Content>`: 아코디언 내용
 
 - 사용 예시
-
-  ```html
+  ```tsx
   <Accordion>
     <Accordion.Item id={0}>
       <Accordion.Header>
