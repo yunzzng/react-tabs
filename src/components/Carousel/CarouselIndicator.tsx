@@ -1,31 +1,68 @@
-import { FC, useContext, useMemo } from "react";
+import {
+  cloneElement,
+  FC,
+  isValidElement,
+  ReactElement,
+  ReactNode,
+  useContext,
+  useMemo,
+} from "react";
 import { CarouselContext } from ".";
-import { carouselIndicatorBaseCls } from '@consts/className';
+import { carouselIndicatorBaseCls } from "@consts/className";
 
 interface CarouselIndicatorProps {
-  className?: string; 
+  className?: string;
+  children?: (indexes: number[], to: (index: number) => void) => ReactNode;
 }
 
-const CarouselIndicator: FC<CarouselIndicatorProps> = ({ className }) => {
-  const { carouselIndex, setCarouselIndex, itemLength } = useContext(CarouselContext);
+const CarouselIndicator: FC<CarouselIndicatorProps> = ({
+  className,
+  children,
+}) => {
+  const { carouselIndex, setCarouselIndex, itemLength } =
+    useContext(CarouselContext);
 
   const carouselIndicatorCls = useMemo(() => {
-    return className ? `${className} ${carouselIndicatorBaseCls}` : carouselIndicatorBaseCls;
+    return className
+      ? `${className} ${carouselIndicatorBaseCls}`
+      : carouselIndicatorBaseCls;
   }, [className]);
+
+  const indexes = Array.from({ length: itemLength }, (_, index) => index);
+  const to = (index: number) => setCarouselIndex(index);
+
+  if (isValidElement(children)) {
+    return (
+      <div className={carouselIndicatorCls}>
+        {indexes.map((index) =>
+          cloneElement(children as ReactElement, {
+            key: index,
+            "data-active": carouselIndex === index,
+            onClick: () => to(index),
+          })
+        )}
+      </div>
+    );
+  }
 
   return (
     <div className={carouselIndicatorCls}>
-      {/* itemLength만큼의 버튼을 생성 */}
-      {Array.from({ length: itemLength }).map((_, index) => {
-        const isActive = useMemo(() => carouselIndex === index, [carouselIndex, index]);
-        
-        return (
-          <button key={index} data-active={isActive} onClick={() => setCarouselIndex(index)} />
-        );
-      })}
+      {children && typeof children === "function"
+        ? children(indexes, to)
+        : indexes.map((index) => {
+            const isActive = carouselIndex === index;
+            return (
+              <button
+                key={index}
+                data-active={isActive}
+                onClick={() => to(index)}
+              >
+                {index + 1}
+              </button>
+            );
+          })}
     </div>
   );
 };
 
 export default CarouselIndicator;
-

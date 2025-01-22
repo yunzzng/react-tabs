@@ -8,6 +8,7 @@ import {
   Modal,
   DatePicker,
   Select,
+  Accordion,
 } from "./components";
 import { useEffect, useState } from "react";
 import Progress from "./components/Progress";
@@ -97,9 +98,29 @@ function App() {
           <Carousel.Item index={0}>1</Carousel.Item>
           <Carousel.Item index={1}>2</Carousel.Item>
           <Carousel.Item index={2}>3</Carousel.Item>
+          <Carousel.Item index={3}>4</Carousel.Item>
+          <Carousel.Item index={4}>5</Carousel.Item>
+          <Carousel.Item index={5}>6</Carousel.Item>
+          <Carousel.Item index={6}>7</Carousel.Item>
         </Carousel.ItemList>
-        <Carousel.Navigator />
-        <Carousel.Indicator />
+        {/* <Carousel.Navigator /> */}
+        <Carousel.Navigator>
+          {(prev, next) => (
+            <div>
+              <div onClick={prev}>prev</div>
+              <h2 onClick={next}>next</h2>
+            </div>
+          )}
+        </Carousel.Navigator>
+        {/* <Carousel.Indicator /> */}
+        <Carousel.Indicator>
+          {/* to가 몇번째 캐러셀 아이템인지 */}
+          {(indexs, to) =>
+            indexs.map((index) => (
+              <span onClick={() => to(index)}>{index + 1}</span>
+            ))
+          }
+        </Carousel.Indicator>
       </Carousel>
 
       <h2>Breadcrumb</h2>
@@ -128,6 +149,22 @@ function App() {
           Place content for the popover here.
         </Popover.Content>
       </Popover>
+
+      <h2>Accordion</h2>
+      <Accordion>
+        <Accordion.Item id={0}>
+          <Accordion.Header>
+            <Accordion.Trigger>Header 1</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content>Content 1</Accordion.Content>
+        </Accordion.Item>
+        <Accordion.Item id={1}>
+          <Accordion.Header>
+            <Accordion.Trigger>Header 2</Accordion.Trigger>
+          </Accordion.Header>
+          <Accordion.Content>Content 2</Accordion.Content>
+        </Accordion.Item>
+      </Accordion>
 
       <h2>Modal</h2>
       {/* <Modal

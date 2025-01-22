@@ -1,24 +1,30 @@
-import { FC, PropsWithChildren, useMemo } from "react";
+import { FC, useContext, useMemo, useEffect, Children, ReactNode } from "react";
+import { CarouselContext } from ".";
 import { carouselItemListBaseCls } from "@consts/className";
 
-interface CarouselItemListProps extends PropsWithChildren {
+interface CarouselItemListProps  {
     className?: string; 
+    children: ReactNode; 
 }
 
-const CarouselItemList: FC<CarouselItemListProps> = (props, className) => {
-    const { children } = props;
+const CarouselItemList: FC<CarouselItemListProps> = ({ children, className }) => {
+    const { setItemLength } = useContext(CarouselContext);
 
     const carouselItemListCls = useMemo(() => {
         return className ? `${className} ${carouselItemListBaseCls}` : carouselItemListBaseCls;
-      }, [className]);
+    }, [className]);
 
+
+    useEffect(() => {
+        const totalItems = Children.count(children); 
+        setItemLength(totalItems); 
+    }, [children, setItemLength]);
 
     return (
         <div className={carouselItemListCls}>
             {children}
         </div>
-    )
-}
-
+    );
+};
 
 export default CarouselItemList;

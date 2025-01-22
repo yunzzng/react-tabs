@@ -52,6 +52,7 @@ npm install yunseul-ui-elements
   - `<Carousel.Indicator>`: 현재 슬라이드 위치를 나타내는 인디케이터
 
 - 사용 예시
+
   ```tsx
   <Carousel>
     <Carousel.ItemList>
@@ -62,6 +63,33 @@ npm install yunseul-ui-elements
     <Carousel.Navigator />
     <Carousel.Indicator />
   </Carousel>
+  ```
+
+  > 캐러셀 커스텀(내비게이터, 인디게이터)
+  ```tsx
+  <Carousel>
+    <Carousel.ItemList>
+    <Carousel.Item index={0}>1</Carousel.Item>
+      <Carousel.Item index={1}>2</Carousel.Item>
+      <Carousel.Item index={2}>3</Carousel.Item>
+    </Carousel.ItemList>
+
+    <Carousel.Navigator>
+      {(prev, next) => (
+        <div>
+          <div onClick={prev}>prev</div>
+          <h2 onClick={next}>next</h2>
+        </div>
+      )}
+    </Carousel.Navigator>
+    <Carousel.Indicator>
+      {(indexs, to) =>
+        indexs.map((index) => (
+          <span onClick={() => to(index)}>{index + 1}</span>
+        ))
+      }
+    </Carousel.Indicator>
+    </Carousel>
   ```
 
 ---
@@ -219,12 +247,32 @@ npm install yunseul-ui-elements
 
 - 사용 예시
   ```tsx
-      <Select onChange={handleChangeValue} value={selectedValue}>
-        <Select.Trigger />
-        <Select.Content>
-          <Select.Item value={"1"}>One</Select.Item>
-          <Select.Item value={"2"}>Two</Select.Item>
-          <Select.Item value={"3"}>Three</Select.Item>
-        </Select.Content>
-      </Select>
+  <Select onChange={handleChangeValue} value={selectedValue}>
+    <Select.Trigger />
+    <Select.Content>
+      <Select.Item value={"1"}>One</Select.Item>
+      <Select.Item value={"2"}>Two</Select.Item>
+      <Select.Item value={"3"}>Three</Select.Item>
+    </Select.Content>
+  </Select>
+  ```
+
+---
+
+### 11. Accordion
+
+#### 컴포넌트
+
+- Children
+
+  - `<Accordion>`: 아코디언 상태와 동작을 관리하는 컨텍스트
+  - `<Accordion.Header>`:
+  - `<Accordion.Trigger>`:
+  - `<Accordion.Item>`:
+  - `<Accordion.Content>`: 아코디언 내용
+
+- 사용 예시
+
+  ```tsx
+
   ```

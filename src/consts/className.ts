@@ -55,3 +55,10 @@ export const SelectBaseCls = getBaseCls("select");
 export const SelectTriggerBaseCls = getBaseCls("select-trigger");
 export const SelectContentBaseCls = getBaseCls("select-content");
 export const SelectItemBaseCls = getBaseCls("select-item");
+
+// Accordion Component
+export const accordionBaseCls= getBaseCls("accordion");
+export const accordionItemBaseCls = getBaseCls("accordion-item");
+export const accordionContentBaseCls = getBaseCls("accordion-content");
+export const accordionHeaderBaseCls = getBaseCls("accordion-header");
+export const accordionTriggerBaseCls = getBaseCls("accordion-trigger");

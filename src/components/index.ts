@@ -8,3 +8,4 @@ export { default as Progress} from "./Progress";
 export { default as Modal} from "./Modal";
 export { default as DatePicker} from "./DatePicker";
 export { default as Select} from "./Select";
+export { default as Accordion} from "./Accordion";
