@@ -12,6 +12,7 @@ import {
 } from "./components";
 import { useEffect, useState } from "react";
 import Progress from "./components/Progress";
+import { Toaster, useToast } from "@ui/Toast";
 // import './App.css'
 
 const sleep = async (time: number): Promise<void> =>
@@ -69,6 +70,23 @@ function App() {
     setSelectedValue(selectedValue);
   };
 
+  // Toast
+  const { toast } = useToast();
+  const handleClickOpenToast = () => {
+    toast(
+      {
+        title: "타이틀",
+        width: "500px",
+        height: "300px",
+        position: "top-center",
+        description: "디스크립션",
+        backgroundColor: "pink",
+        color: "#ffffff",
+      },
+      5000
+    );
+  };
+
   return (
     <>
       <h2>Progress</h2>
@@ -117,7 +135,9 @@ function App() {
           {/* to가 몇번째 캐러셀 아이템인지 */}
           {(indexs, to) =>
             indexs.map((index) => (
-              <span key={index} onClick={() => to(index)}>{index + 1}</span>
+              <span key={index} onClick={() => to(index)}>
+                {index + 1}
+              </span>
             ))
           }
         </Carousel.Indicator>
@@ -241,6 +261,10 @@ function App() {
           <Select.Item value={"5"}>🐷</Select.Item>
         </Select.Content>
       </Select>
+
+      <h2>Toast</h2>
+      <Toaster />
+      <button onClick={handleClickOpenToast}>open toast</button>
     </>
   );
 }

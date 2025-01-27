@@ -52,6 +52,7 @@ npm install yunseul-ui-elements
   - `<Carousel.Indicator>`: 현재 슬라이드 위치를 나타내는 인디케이터
 
 - 사용 예시
+
   ```tsx
   <Carousel>
     <Carousel.ItemList>
@@ -65,10 +66,11 @@ npm install yunseul-ui-elements
   ```
 
   > 캐러셀 커스텀(내비게이터, 인디게이터)
+
   ```tsx
   <Carousel>
     <Carousel.ItemList>
-    <Carousel.Item index={0}>1</Carousel.Item>
+      <Carousel.Item index={0}>1</Carousel.Item>
       <Carousel.Item index={1}>2</Carousel.Item>
       <Carousel.Item index={2}>3</Carousel.Item>
     </Carousel.ItemList>
@@ -84,11 +86,13 @@ npm install yunseul-ui-elements
     <Carousel.Indicator>
       {(indexs, to) =>
         indexs.map((index) => (
-          <span key={index} onClick={() => to(index)}>{index + 1}</span>
+          <span key={index} onClick={() => to(index)}>
+            {index + 1}
+          </span>
         ))
       }
     </Carousel.Indicator>
-    </Carousel>
+  </Carousel>
   ```
 
 ---
@@ -141,6 +145,7 @@ npm install yunseul-ui-elements
 #### 데이터를 여러 페이지로 나누어서 표시하여 페이지 간 이동이 가능한 컴포넌트
 
 - Children
+
   - `<Pagination>`: 페이지 상태와 동작을 관리하는 컨텍스트
   - `<Pagination.PageButtons>`: 페이지 번호 버튼
   - `<Pagination.Navigator>`: 이전/다음 페이지 버튼
@@ -165,6 +170,7 @@ npm install yunseul-ui-elements
 #### 클릭 시 추가 정보를 보여주는 팝업 창 컴포넌트
 
 - Children
+
   - `<Popover>`: 팝업 상태와 동작을 관리하는 컨텍스트
   - `<Popover.Trigger>`: 팝업을 열기 위한 트리거
   - `<Popover.Content>`: 팝업에 표시할 콘텐츠
@@ -186,6 +192,7 @@ npm install yunseul-ui-elements
 #### 진행 상태를 시각적으로 나타내는 컴포넌트
 
 - Children
+
   - `<Progress>`: 진행 상태 관리
 
 - 사용 예시
@@ -289,4 +296,31 @@ npm install yunseul-ui-elements
       <Accordion.Content>Content 2</Accordion.Content>
     </Accordion.Item>
   </Accordion>
+  ```
+
+---
+
+### 12. Toast
+
+#### 컴포넌트
+
+- ## Children
+
+  - `<Toster>`:
+  - `<TostClose>`: 토스트 닫기
+  - `<ToastTitle>`: 토스트 제목
+  - `<ToastDescription>`: 토스트 내용
+
+- 사용 예시
+
+  ```tsx
+  const { toast } = useToast();
+  const handleClickOpenToast = () => {
+    toast({ title: "ToastTitle", description: "ToastDescription" });
+  };
+
+  return (
+    <Toaster />
+    <button onClick={handleClickOpenToast}>open toast</button>
+  )
   ```
