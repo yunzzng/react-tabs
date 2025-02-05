@@ -24,12 +24,7 @@ interface CarouselContextProps {
     setItemLength: Dispatch<SetStateAction<number>>;
 }
 
-const CarouselContext = createContext<CarouselContextProps>({
-    carouselIndex: 0,
-    setCarouselIndex: () => {},
-    itemLength: 0,
-    setItemLength: () => {}, 
-});
+const CarouselContext = createContext<CarouselContextProps | null>(null);
 
 
 const Carousel: FC<CarouselProps> & CarouselCompoundProps = ({ children, className }) => {

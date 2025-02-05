@@ -1,10 +1,4 @@
-import {
-  createContext,
-  FC,
-  useState,
-  ReactNode,
-  useMemo,
-} from "react";
+import { createContext, FC, useState, ReactNode, useMemo } from "react";
 import AccordionItem from "./AccordionItem";
 import AccordionHeader from "./AccordionHeader";
 import AccordionTrigger from "./AccordionTrigger";
@@ -28,10 +22,7 @@ interface AccordionContextProps {
   toggleItem: (itemId: number) => void;
 }
 
-const AccordionContext = createContext<AccordionContextProps>({
-  activeItems: [],
-  toggleItem: () => {},
-});
+const AccordionContext = createContext<AccordionContextProps | null>(null);
 
 const Accordion: FC<AccordionProps> & AccordionCompoundProps = ({
   children,

@@ -24,11 +24,7 @@ interface SelectContextProps {
   onChange?: (value: string, label: ReactNode) => void;
 }
 
-const SelectContext = createContext<SelectContextProps>({
-  value: "",
-  label: "",
-  onChange: () => {},
-});
+const SelectContext = createContext<SelectContextProps | null>(null);
 
 const Select: FC<SelectProps> & SelectCompoundProps = ({
   value,

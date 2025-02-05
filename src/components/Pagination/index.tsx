@@ -14,11 +14,7 @@ interface PaginationCompoundProps {
     Navigator: typeof PaginationNavigator;
 }
 
-const PaginationContext = createContext<PaginationContextProps>({
-    currentPage: 1,
-    totalPages: 1,
-    setCurrentPage: () => {},
-});
+const PaginationContext = createContext<PaginationContextProps | null>(null);
 
 interface PaginationProps {
     children: ReactNode;

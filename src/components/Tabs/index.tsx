@@ -15,10 +15,7 @@ interface TabsCompoundProps {
     Pannel: typeof TabPanel;
 }
 
-const TabContext = createContext<TabsContextProps>({
-    tabIndex: 0,
-    setTabIndex: () => {},
-});
+const TabContext = createContext<TabsContextProps | null>(null);
 
 interface TabsProps {
     children: ReactNode;

@@ -24,10 +24,7 @@ interface CalendarCompoundProps {
   Body: typeof CalendarBody;
 }
 
-const CalendarContext = createContext<CalendarContextProps>({
-  currentDate: new Date(),
-  setCurrentDate: () => {},
-});
+const CalendarContext = createContext<CalendarContextProps | null>(null);
 
 interface CalendarProps {
   children: ReactNode;

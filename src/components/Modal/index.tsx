@@ -11,11 +11,7 @@ interface ModalContextProps {
   closeModal: () => void;
 }
 
-const ModalContext = createContext<ModalContextProps>({
-  isOpen: false,
-  openModal: () => {},
-  closeModal: () => {},
-});
+const ModalContext = createContext<ModalContextProps | null>(null);
 
 interface ModalProps {
   open?: boolean;

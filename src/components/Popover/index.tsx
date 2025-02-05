@@ -22,13 +22,7 @@ interface PopoverCompoundProps {
     Trigger: typeof PopoverTrigger;
 }
 
-const PopoverContext = createContext<PopoverContextProps>({
-    isOpen: false,
-    toggle: () => {},
-    close: () => {},
-    triggerRef: { current: null },  // 기본값: RefObject의 초기 상태
-    triggerElem: null,
-});
+const PopoverContext = createContext<PopoverContextProps | null>(null);
 
 const Popover: FC<PopoverProps > & PopoverCompoundProps = ({ children, className, triggerElem })  => {
     const [isOpen, setIsOpen] = useState(false);
