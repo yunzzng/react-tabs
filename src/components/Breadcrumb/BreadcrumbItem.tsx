@@ -2,7 +2,6 @@ import { useEffect, useRef, useContext, ReactNode, useMemo } from "react";
 import { BreadcrumbContext } from "./index";
 import { breadcrumbItemBaseCls } from "@consts/className";
 
-
 interface BreadcrumbItemProps {
   href: string;
   children: ReactNode;
@@ -11,7 +10,11 @@ interface BreadcrumbItemProps {
 
 const BreadcrumbItem = ({ href, children, className }: BreadcrumbItemProps) => {
   const itemRef = useRef<HTMLAnchorElement>(null);
-  const { addItemWidth } = useContext(BreadcrumbContext);
+  const breadcrumbContext = useContext(BreadcrumbContext) ?? {
+    addItemWidth: () => {},
+  };
+
+  const { addItemWidth } = breadcrumbContext;
 
   useEffect(() => {
     if (itemRef.current) {

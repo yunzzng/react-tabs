@@ -9,7 +9,8 @@ interface ModalContentProps {
 }
 
 const ModalContent: FC<ModalContentProps> = ({ children, className }) => {
-  const { isOpen } = useContext(ModalContext);
+  const modalContext = useContext(ModalContext) ?? { isOpen: false };
+  const { isOpen } = modalContext;
 
   const modalContentCls = useMemo(() => {
     return className

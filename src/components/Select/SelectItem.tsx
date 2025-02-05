@@ -14,8 +14,11 @@ const SelectItem: React.FC<SelectItemProps> = ({
   children: label,
   className,
 }) => {
-  const { onChange } = useContext(SelectContext);
-  const { close } = usePopover();
+  const selectContext = useContext(SelectContext) ?? { onChange: () => {} };
+  const popoverContext = usePopover() ?? { close: () => {} };
+
+  const { onChange } = selectContext;
+  const { close } = popoverContext;
 
   const selectItemCls = useMemo(() => {
     return className ? `${className} ${SelectItemBaseCls}` : SelectItemBaseCls;

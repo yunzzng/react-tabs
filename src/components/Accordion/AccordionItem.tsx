@@ -1,6 +1,6 @@
-import { ReactNode, useMemo, useContext, FC, createContext } from 'react';
-import { AccordionContext } from '.';
-import { accordionItemBaseCls } from '@consts/className';
+import { ReactNode, useMemo, useContext, FC, createContext } from "react";
+import { AccordionContext } from ".";
+import { accordionItemBaseCls } from "@consts/className";
 
 interface AccordionItemContextProps {
   isActive: boolean;
@@ -19,7 +19,12 @@ interface ItemProps {
 }
 
 const AccordionItem: FC<ItemProps> = ({ id, children, className }) => {
-  const { activeItems, toggleItem } = useContext(AccordionContext);
+  const accordionContext = useContext(AccordionContext) ?? {
+    activeItems: [],
+    toggleItem: () => {},
+  };
+
+  const { activeItems, toggleItem } = accordionContext;
   const isActive = activeItems.includes(id);
 
   const toggleActive = () => {
@@ -27,7 +32,9 @@ const AccordionItem: FC<ItemProps> = ({ id, children, className }) => {
   };
 
   const accordionItemCls = useMemo(() => {
-    return className ? `${className} ${accordionItemBaseCls}` : accordionItemBaseCls;
+    return className
+      ? `${className} ${accordionItemBaseCls}`
+      : accordionItemBaseCls;
   }, [className]);
 
   return (

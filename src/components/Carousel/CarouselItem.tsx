@@ -9,7 +9,8 @@ interface CarouselItemProps {
 }
 
 const CarouselItem: FC<CarouselItemProps> = ({ children, index, className }) => {
-    const { carouselIndex } = useContext(CarouselContext);
+    const carouselContext = useContext(CarouselContext) ?? { carouselIndex: 0 };
+    const { carouselIndex } = carouselContext;
 
     const carouselItemCls = useMemo(() => {
         return className ? `${className} ${carouselItemBaseCls}` : carouselItemBaseCls;

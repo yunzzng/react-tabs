@@ -19,8 +19,13 @@ const CarouselIndicator: FC<CarouselIndicatorProps> = ({
   className,
   children,
 }) => {
-  const { carouselIndex, setCarouselIndex, itemLength } =
-    useContext(CarouselContext);
+  const carouselContext = useContext(CarouselContext) ?? {
+    carouselIndex: 0,
+    setCarouselIndex: () => {},
+    itemLength: 0,
+  };
+
+  const { carouselIndex, setCarouselIndex, itemLength } = carouselContext;
 
   const carouselIndicatorCls = useMemo(() => {
     return className

@@ -1,4 +1,13 @@
-import { cloneElement, FC, isValidElement, ReactElement, ReactNode, Ref, useContext, useMemo } from "react";
+import {
+  cloneElement,
+  FC,
+  isValidElement,
+  ReactElement,
+  ReactNode,
+  Ref,
+  useContext,
+  useMemo,
+} from "react";
 import { PopoverContext } from ".";
 import { popoverTriggertBaseCls } from "@consts/className";
 
@@ -9,7 +18,13 @@ interface PopoverTriggerProps {
 }
 
 const PopoverTrigger: FC<PopoverTriggerProps> = ({ children, className }) => {
-  const { toggle, triggerRef, isOpen } = useContext(PopoverContext);
+  const popoverContext = useContext(PopoverContext) ?? {
+    toggle: () => {},
+    triggerRef: { current: null },
+    isOpen: false,
+  };
+
+  const { toggle, triggerRef, isOpen } = popoverContext;
 
   const popoverTriggerCls = useMemo(() => {
     return className

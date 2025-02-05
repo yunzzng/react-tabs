@@ -8,7 +8,11 @@ interface ModalBackdropProps {
 }
 
 const ModalBackdrop: FC<ModalBackdropProps> = ({ className }) => {
-  const { closeModal, isOpen } = useContext(ModalContext);
+  const modalContext = useContext(ModalContext) ?? {
+    closeModal: () => {},
+    isOpen: false,
+  };
+  const { closeModal, isOpen } = modalContext;
 
   const modalBackdropCls = useMemo(() => {
     return className

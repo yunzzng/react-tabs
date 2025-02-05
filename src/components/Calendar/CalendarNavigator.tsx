@@ -1,13 +1,17 @@
 import { FC, useContext, useMemo } from "react";
 import { CalendarContext } from ".";
-import { calendarNavigatorBaseCls } from '@consts/className';
+import { calendarNavigatorBaseCls } from "@consts/className";
 
 interface CalendarNavigatorProps {
-  className?: string; 
+  className?: string;
 }
 
-const CalendarNavigator: FC<CalendarNavigatorProps> = ({ className }) =>{
-  const { currentDate, setCurrentDate } = useContext(CalendarContext);
+const CalendarNavigator: FC<CalendarNavigatorProps> = ({ className }) => {
+  const calendarContext = useContext(CalendarContext) ?? {
+    currentDate: new Date(),
+    setCurrentDate: () => {},
+  };
+  const { currentDate, setCurrentDate } = calendarContext;
 
   const handleNavigation = (direction: "previous" | "next") => {
     setCurrentDate((prevDate) => {
@@ -24,7 +28,9 @@ const CalendarNavigator: FC<CalendarNavigatorProps> = ({ className }) =>{
   };
 
   const calendarNavigatorCls = useMemo(() => {
-    return className ? `${className} ${calendarNavigatorBaseCls}` : calendarNavigatorBaseCls;
+    return className
+      ? `${className} ${calendarNavigatorBaseCls}`
+      : calendarNavigatorBaseCls;
   }, [className]);
 
   return (
@@ -37,4 +43,3 @@ const CalendarNavigator: FC<CalendarNavigatorProps> = ({ className }) =>{
 };
 
 export default CalendarNavigator;
-

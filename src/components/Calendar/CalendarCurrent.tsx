@@ -1,17 +1,22 @@
 import { FC, useContext, useMemo } from "react";
 import { CalendarContext } from ".";
-import { calendarCurrentBaseCls } from '@consts/className';
+import { calendarCurrentBaseCls } from "@consts/className";
 
 interface CalendarCurrentProps {
-  className?: string; 
+  className?: string;
 }
 
-const CalendarCurrent : FC<CalendarCurrentProps> = ({ className }) => {
-  const { currentDate } = useContext(CalendarContext);
+const CalendarCurrent: FC<CalendarCurrentProps> = ({ className }) => {
+  const calendarContext = useContext(CalendarContext) ?? {
+    currentDate: new Date(),
+  };
+  const { currentDate } = calendarContext;
 
   const calendarCurrentCls = useMemo(() => {
-    return className ? `${className} ${calendarCurrentBaseCls}` : calendarCurrentBaseCls;
-}, [className]);
+    return className
+      ? `${className} ${calendarCurrentBaseCls}`
+      : calendarCurrentBaseCls;
+  }, [className]);
 
   return (
     <div className={calendarCurrentCls}>

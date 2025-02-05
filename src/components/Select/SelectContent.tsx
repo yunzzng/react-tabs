@@ -9,7 +9,8 @@ interface SelectCotentProps {
 }
 
 const SelectContent: FC<SelectCotentProps> = ({ children, className }) => {
-  const { isOpen } = usePopover();
+  const popoverContext = usePopover() ?? { isOpen: false };
+  const { isOpen } = popoverContext;
 
   const selectContentCls = useMemo(() => {
     return className

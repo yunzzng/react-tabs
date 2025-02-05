@@ -19,7 +19,12 @@ const CarouselNavigator: FC<CarouselNavigatorProps> = ({
   className,
   children,
 }) => {
-  const { setCarouselIndex, itemLength } = useContext(CarouselContext);
+  const carouselContext = useContext(CarouselContext) ?? {
+    setCarouselIndex: () => {},
+    itemLength: 0,
+  };
+
+  const { setCarouselIndex, itemLength } = carouselContext;
 
   // const handlePrevious = () => {
   //     // 현재 인덱스가 0이면 마지막 인덱스로 이동, 그렇지 않으면 이전 인덱스로 이동

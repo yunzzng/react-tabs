@@ -10,10 +10,15 @@ interface SelectTriggerProps {
   placeholder?: string;
 }
 
+const SelectTrigger: FC<SelectTriggerProps> = ({
+  className,
+  placeholder = DEFAULT_TRIGGER_PLACEHOLDER,
+}) => {
+  const popoverContext = usePopover() ?? { toggle: () => {} };
+  const selectContext = useContext(SelectContext) ?? { label: "" };
 
-const SelectTrigger: FC<SelectTriggerProps> = ({ className, placeholder=DEFAULT_TRIGGER_PLACEHOLDER }) => {
-  const { toggle } = usePopover();
-  const { label } = useContext(SelectContext);
+  const { toggle } = popoverContext;
+  const { label } = selectContext;
 
   const selectTriggerCls = useMemo(() => {
     return className
@@ -23,7 +28,7 @@ const SelectTrigger: FC<SelectTriggerProps> = ({ className, placeholder=DEFAULT_
 
   return (
     <PopoverTrigger onClick={toggle} className={selectTriggerCls}>
-      {label || placeholder }
+      {label || placeholder}
     </PopoverTrigger>
   );
 };

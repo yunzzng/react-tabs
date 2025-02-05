@@ -16,7 +16,8 @@ interface ModalTriggerProps {
 }
 
 const ModalTrigger: FC<ModalTriggerProps> = ({ className, children }) => {
-  const { openModal } = useContext(ModalContext);
+  const modalContext = useContext(ModalContext) ?? { openModal: () => {} };
+  const { openModal } = modalContext;
 
   const modalTriggerCls = useMemo(() => {
     return className
@@ -30,13 +31,13 @@ const ModalTrigger: FC<ModalTriggerProps> = ({ className, children }) => {
       <>
         {children.map((child, index) => {
           if (isValidElement(child)) {
-            const childElement = child as ReactElement; 
+            const childElement = child as ReactElement;
             return cloneElement(childElement, {
               onClick: openModal,
               className: `${modalTriggerCls} ${
                 childElement.props.className || ""
               }`.trim(),
-              key: index, 
+              key: index,
             });
           }
           return child;
@@ -49,9 +50,7 @@ const ModalTrigger: FC<ModalTriggerProps> = ({ className, children }) => {
   if (isValidElement(children)) {
     return cloneElement(children as ReactElement, {
       onClick: openModal,
-      className: `${modalTriggerCls} ${
-        children.props.className || ""
-      }`,
+      className: `${modalTriggerCls} ${children.props.className || ""}`,
     });
   }
 

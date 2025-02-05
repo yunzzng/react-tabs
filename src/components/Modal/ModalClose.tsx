@@ -16,7 +16,8 @@ interface ModalButtonProps {
 }
 
 const ModalClose: FC<ModalButtonProps> = ({ className, children }) => {
-  const { closeModal } = useContext(ModalContext);
+  const modalContext = useContext(ModalContext) ?? { closeModal: () => {} };
+  const { closeModal } = modalContext;
 
   const modalCloseCls = useMemo(() => {
     return className

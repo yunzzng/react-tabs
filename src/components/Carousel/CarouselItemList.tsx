@@ -8,7 +8,8 @@ interface CarouselItemListProps  {
 }
 
 const CarouselItemList: FC<CarouselItemListProps> = ({ children, className }) => {
-    const { setItemLength } = useContext(CarouselContext);
+    const carouselContext = useContext(CarouselContext) ?? { setItemLength: () => {} };
+    const { setItemLength } = carouselContext;
 
     const carouselItemListCls = useMemo(() => {
         return className ? `${className} ${carouselItemListBaseCls}` : carouselItemListBaseCls;

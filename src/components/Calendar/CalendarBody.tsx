@@ -3,11 +3,15 @@ import { CalendarContext } from ".";
 import { calendarBodyBaseCls } from "@consts/className";
 
 interface CalendarBodyProps {
-  className?: string; 
+  className?: string;
 }
 
-const CalendarBody : FC<CalendarBodyProps> = ({ className }) => {
-  const { currentDate, setCurrentDate } = useContext(CalendarContext);
+const CalendarBody: FC<CalendarBodyProps> = ({ className }) => {
+  const calendarContext = useContext(CalendarContext) ?? {
+    currentDate: new Date(),
+    setCurrentDate: () => {},
+  };
+  const { currentDate, setCurrentDate } = calendarContext;
 
   const getDatesForCurrentMonth = () => {
     const year = currentDate.getFullYear();
@@ -18,7 +22,7 @@ const CalendarBody : FC<CalendarBodyProps> = ({ className }) => {
     // 0:일요일, 6:토요일
     const startDayOfWeek = startDay.getDay();
     const endDayOfWeek = endDay.getDay();
-    
+
     const dates = [
       // 이전 월의 날짜
       ...Array.from({ length: startDayOfWeek }, (_, i) => ({
@@ -33,7 +37,7 @@ const CalendarBody : FC<CalendarBodyProps> = ({ className }) => {
         date: new Date(year, month + 1, i + 1),
       })),
     ];
-  
+
     return dates;
   };
 
@@ -44,8 +48,10 @@ const CalendarBody : FC<CalendarBodyProps> = ({ className }) => {
   };
 
   const calendarBodyCls = useMemo(() => {
-    return className ? `${className} ${calendarBodyBaseCls}` : calendarBodyBaseCls;
-}, [className]);
+    return className
+      ? `${className} ${calendarBodyBaseCls}`
+      : calendarBodyBaseCls;
+  }, [className]);
 
   return (
     <div className={calendarBodyCls}>
